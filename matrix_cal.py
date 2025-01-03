@@ -11,6 +11,7 @@ def create_matrix_entries(matrix_frame, rows, cols):
             row_entries.append(entry)
         entries.append(row_entries)
     return entries
+
 def get_matrix_from_entries(entries):
     return [[int(entry.get()) for entry in row] for row in entries]
 
@@ -27,8 +28,12 @@ def multiply_matrices():
         result_str = '\n'.join([' '.join(map(str, row)) for row in result])
         result_entry.delete("1.0", tk.END)
         result_entry.insert(tk.END, result_str)
+        
+        # Clear matrix entries
+        reset_inputs()
     except Exception as e:
         messagebox.showerror("Error", str(e))
+
 def create_matrix_input():
     global matrix1_entries, matrix2_entries
 
@@ -48,6 +53,16 @@ def create_matrix_input():
 
     matrix1_entries = create_matrix_entries(matrix1_frame, rows1, cols1)
     matrix2_entries = create_matrix_entries(matrix2_frame, rows2, cols2)
+
+def reset_inputs():
+    rows1_entry.delete(0, tk.END)
+    cols1_entry.delete(0, tk.END)
+    rows2_entry.delete(0, tk.END)
+    cols2_entry.delete(0, tk.END)
+    for widget in matrix1_frame.winfo_children():
+        widget.destroy()
+    for widget in matrix2_frame.winfo_children():
+        widget.destroy()
 
 app = tk.Tk()
 app.title("Matrix Multiplication Calculator")
