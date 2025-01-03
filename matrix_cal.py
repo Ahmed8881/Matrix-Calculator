@@ -52,4 +52,6 @@ def create_matrix_input():
 app = tk.Tk()
 app.title("Matrix Multiplication Calculator")
 app.geometry("600x600")
-app.configure(bg="#f0f0f0")  # Set background color
+app.configure(bg="#f0f0f0") 
+input_frame = tk.Frame(app, bg="#f0f0f0")
+input_frame.pack(pady=10)
