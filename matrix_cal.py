@@ -71,3 +71,21 @@ rows2_entry.grid(row=3, column=1)
 tk.Label(input_frame, text="Columns:", bg="#f0f0f0").grid(row=3, column=2)
 cols2_entry = tk.Entry(input_frame, width=5)
 cols2_entry.grid(row=3, column=3)
+btn_style = {"bg": "#4CAF50", "fg": "white", "font": ("Arial", 10, "bold")}
+tk.Button(input_frame, text="Create Matrix Inputs", command=create_matrix_input, **btn_style).grid(row=4, column=0, columnspan=4, pady=10)
+
+matrix1_frame = tk.Frame(app, bg="#f0f0f0")
+matrix1_frame.pack(pady=10)
+tk.Label(app, text="Matrix 1:", bg="#f0f0f0").pack()
+
+matrix2_frame = tk.Frame(app, bg="#f0f0f0")
+matrix2_frame.pack(pady=10)
+tk.Label(app, text="Matrix 2:", bg="#f0f0f0").pack()
+
+tk.Button(app, text="Multiply", command=multiply_matrices, **btn_style).pack(pady=10)
+
+tk.Label(app, text="Result:", bg="#f0f0f0").pack()
+result_entry = tk.Text(app, height=10, width=50)
+result_entry.pack(pady=10)
+
+app.mainloop()
