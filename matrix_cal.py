@@ -29,3 +29,22 @@ def multiply_matrices():
         result_entry.insert(tk.END, result_str)
     except Exception as e:
         messagebox.showerror("Error", str(e))
+def create_matrix_input():
+    global matrix1_entries, matrix2_entries
+
+    for widget in matrix1_frame.winfo_children():
+        widget.destroy()
+    for widget in matrix2_frame.winfo_children():
+        widget.destroy()
+
+    rows1 = int(rows1_entry.get())
+    cols1 = int(cols1_entry.get())
+    rows2 = int(rows2_entry.get())
+    cols2 = int(cols2_entry.get())
+
+    if cols1 != rows2:
+        messagebox.showerror("Error", "Number of columns in Matrix 1 must be equal to number of rows in Matrix 2")
+        return
+
+    matrix1_entries = create_matrix_entries(matrix1_frame, rows1, cols1)
+    matrix2_entries = create_matrix_entries(matrix2_frame, rows2, cols2)
