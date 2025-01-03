@@ -48,3 +48,8 @@ def create_matrix_input():
 
     matrix1_entries = create_matrix_entries(matrix1_frame, rows1, cols1)
     matrix2_entries = create_matrix_entries(matrix2_frame, rows2, cols2)
+
+app = tk.Tk()
+app.title("Matrix Multiplication Calculator")
+app.geometry("600x600")
+app.configure(bg="#f0f0f0")  # Set background color
